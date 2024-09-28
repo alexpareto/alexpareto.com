@@ -1,0 +1,82 @@
+body {
+  font-family: 'Archivo', sans-serif;
+  line-height: 1.6;
+  color: #222831;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #2A7AE2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.about p {
+  margin-bottom: 1rem;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.essays {
+  margin-top: 20px;
+}
+
+.essay-entry {
+  margin-bottom: 15px;
+}
+
+.essay-entry a {
+  font-weight: bold;
+  color: #2A7AE2;
+  text-decoration: none;
+}
+
+.essay-entry a:hover {
+  text-decoration: underline;
+}
+
+.essay-date {
+  font-size: 0.9em;
+  color: #666;
+}

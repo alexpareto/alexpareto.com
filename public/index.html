@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Pareto | @alexpareto</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Alex Pareto | @alexpareto</h1>
+      <div class="socials">
+        <a href="mailto:alex@alexpareto.com">alex@alexpareto.com</a>
+        <div>
+          <a href="https://blog.alexpareto.com" target="_blank">Writing</a> |
+          <a href="https://twitter.com/alexpareto" target="_blank">Twitter</a> |
+          <a href="https://github.com/alexpareto" target="_blank">GitHub</a> |
+          <a href="https://linkedin.com/in/alexpareto" target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+      <div class="about">
+        <p>
+          Hey! My name's Alex. I lead engineering for Spend Management at
+          <a href="https://brex.com" target="_blank">Brex</a>. I'm based in SF.
+        </p>
+        <p>
+          You can find my writing
+          <a href="https://blog.alexpareto.com" target="_blank">here</a>. I
+          write mostly about software and startups.
+        </p>
+        <p>
+          Previously I led engineering at
+          <a href="https://thentwrk.com" target="_blank">NTWRK</a> and founded
+          <a
+            href="https://www.ycombinator.com/companies/demeanor-co"
+            target="_blank"
+            >demeanor.co</a
+          >
+          (Y Combinator S18, acquired by NTWRK). Before that, I worked on the
+          video platform at
+          <a href="http://facebook.com" target="_blank">Facebook</a>. I studied
+          at <a href="https://www.usc.edu" target="_blank">USC</a> and
+          <a href="http://www.andover.edu/" target="_blank">Andover</a>.
+        </p>
+        <p>
+          I love to chat. Find me at
+          <a href="mailto:alex@alexpareto.com">alex@alexpareto.com</a> or on
+          Twitter
+          <a href="https://twitter.com/alexpareto" target="_blank"
+            >@alexpareto</a
+          >.
+        </p>
+      </div>
+      <hr />
+      <h2>Writing</h2>
+      <div id="essays"></div>
+      <div class="subscribe">
+        <iframe
+          src="https://blog.alexpareto.com/embed"
+          width="480"
+          height="150"
+          style="border: 1px solid #eee; background: white"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+  <script>
+    fetch("/api/feed")
+      .then((response) => response.json())
+      .then((data) => {
+        const essaysContainer = document.querySelector("#essays");
+
+        // Create and append essay entries
+        data.items.forEach((item) => {
+          const essayDiv = document.createElement("div");
+          essayDiv.className = "essay-entry";
+
+          const titleLink = document.createElement("a");
+          titleLink.href = item.link;
+          titleLink.textContent = item.title;
+          titleLink.target = "_blank";
+
+          essayDiv.appendChild(titleLink);
+          essayDiv.appendChild(document.createElement("br"));
+
+          essaysContainer.appendChild(essayDiv);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching feed:", error);
+        const essaysContainer = document.querySelector(".essays");
+        essaysContainer.textContent =
+          "Failed to load essays. Please try again later.";
+      });
+  </script>
+</html>
