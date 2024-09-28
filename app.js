@@ -3,7 +3,7 @@ const path = require("path");
 const Parser = require("rss-parser");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const parser = new Parser();
 
 // Serve static files from the 'public' directory
