@@ -35,10 +35,9 @@ app.get("/feed.xml", (req, res) => {
   res.redirect("https://blog.alexpareto.com/feed.xml");
 });
 
-// New endpoint to fetch RSS feed and return JSON
 app.get("/api/feed", async (req, res) => {
   try {
-    const feedUrl = "https://blog.alexpareto.com/feed.xml"; // Replace with your actual RSS feed URL
+    const feedUrl = "https://blog.alexpareto.com/feed.xml";
     const response = await fetch(feedUrl);
     const feedData = await response.text();
     const feed = await parser.parseString(feedData);
