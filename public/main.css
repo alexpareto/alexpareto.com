@@ -14,6 +14,11 @@ body {
   box-sizing: border-box;
 }
 
+.about a {
+  color: #222831;
+  text-decoration: underline;
+}
+
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -67,7 +72,6 @@ a:hover {
 }
 
 .essay-entry a {
-  font-weight: bold;
   color: #2A7AE2;
   text-decoration: none;
 }
