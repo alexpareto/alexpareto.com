@@ -28,7 +28,7 @@ app.get("/2020/09/13/choosing-tech-stack.html", (req, res) => {
 });
 
 app.get("/feed.xml", (req, res) => {
-  res.redirect("https://blog.alexpareto.com/feed.xml");
+  res.redirect(301, "https://blog.alexpareto.com/feed.xml");
 });
 
 app.get("/api/feed", async (req, res) => {
