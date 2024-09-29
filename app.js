@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const Parser = require("rss-parser");
+const fs = require("fs").promises;
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,11 +13,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Route for the root path
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Route for the root path
-app.get("/main.css", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "main.css"));
 });
 
 app.get("/scalability/systems/2020/02/03/scaling-100k.html", (req, res) => {
@@ -60,6 +56,10 @@ app.get("/api/feed", async (req, res) => {
     console.error("Error fetching RSS feed:", error);
     res.status(500).json({ error: "Failed to fetch RSS feed" });
   }
+});
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "public", "404.html"));
 });
 
 // Start the server

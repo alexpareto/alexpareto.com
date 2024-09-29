@@ -1,6 +1,7 @@
 {
   "name": "alexpareto.com",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "A simple Express app serving a static HTML file",
   "main": "app.js",
   "scripts": {
